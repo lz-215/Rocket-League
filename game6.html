@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SportyPlay - Free Sports Games | Play Rocket League Now</title>
+    <meta name="description" content="Play Rocket League and other exciting sports games for free at SportyPlay. No downloads required, instant play in your browser!">
+    <link rel="canonical" href="https://sportyplay.com" />
+    <meta name="keywords" content="Rocket League, sports games, free online games, soccer games, racing games">
+    
+    <!-- Google tag (gtag.js) --> 
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-EPHGTFNNQR"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-EPHGTFNNQR');
+    </script>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'sport-blue': '#3498db',
+                        'sport-green': '#2ecc71',
+                        'sport-orange': '#f39c12',
+                        'sport-light': '#f5f7fa',
+                        'sport-dark': '#2c3e50'
+                    },
+                    animation: {
+                        'bounce-slow': 'bounce 3s ease-in-out infinite',
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f5f7fa;
+        }
+        
+        .gradient-text {
+            background: linear-gradient(90deg, #3498db, #2ecc71);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #3498db, #2ecc71);
+        }
+        
+        .gradient-border {
+            position: relative;
+        }
+        
+        .gradient-border::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, #3498db, #2ecc71);
+            border-radius: 3px;
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .feature-icon {
+            background: linear-gradient(135deg, #3498db, #2ecc71);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .floating-ball {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.5;
+            z-index: -1;
+            animation: float 15s ease-in-out infinite;
+        }
+        
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(10deg); }
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .floating-ball {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-sport-light text-sport-dark">
+    <!-- Animated background elements -->
+    <div class="floating-ball bg-sport-blue" style="width: 150px; height: 150px; top: 10%; left: 5%; animation-delay: 0s;"></div>
+    <div class="floating-ball bg-sport-green" style="width: 100px; height: 100px; top: 60%; right: 10%; animation-delay: 2s;"></div>
+    <div class="floating-ball bg-sport-orange" style="width: 80px; height: 80px; bottom: 10%; left: 15%; animation-delay: 4s;"></div>
+    
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <a href="index.html" class="flex-shrink-0 flex items-center">
+                        <span class="text-2xl font-bold gradient-text">SportyPlay</span>
+                    </a>
+                    <div class="hidden md:ml-6 md:flex md:space-x-8">
+                        <a href="index.html" class="text-gray-500 hover:text-sport-blue px-3 py-2 rounded-md text-sm font-medium">Home</a>
+                        <a href="#" class="text-sport-blue border-b-2 border-sport-blue px-3 py-2 rounded-md text-sm font-medium">Sports Games</a>
+                        <a href="#" class="text-gray-500 hover:text-sport-blue px-3 py-2 rounded-md text-sm font-medium">Racing Games</a>
+                        <a href="#" class="text-gray-500 hover:text-sport-blue px-3 py-2 rounded-md text-sm font-medium">Top Rated</a>
+                    </div>
+                </div>
+                <div class="flex items-center">
+                    <div class="hidden md:flex items-center">
+                        <a href="#" class="text-gray-500 hover:text-sport-blue px-3 py-2 rounded-md text-sm font-medium">
+                            <i class="fas fa-search mr-1"></i> Search
+                        </a>
+                        <a href="#" class="ml-4 inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-sport-blue hover:bg-opacity-90">
+                            <i class="fas fa-user mr-1"></i> Sign In
+                        </a>
+                    </div>
+                    <div class="flex md:hidden">
+                        <button type="button" class="text-gray-500 hover:text-sport-blue">
+                            <i class="fas fa-bars text-xl"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <!-- Hero Section -->
+        <section class="text-center mb-16">
+            <span class="inline-block bg-sport-blue bg-opacity-10 text-sport-blue px-4 py-2 rounded-full text-sm font-semibold mb-4">
+                <i class="fas fa-bolt mr-2"></i>Featured Game
+            </span>
+            <h1 class="text-4xl md:text-6xl font-bold mb-6 gradient-text">
+                Rocket League
+            </h1>
+            <p class="text-xl max-w-3xl mx-auto mb-8 text-gray-600">
+                Experience the thrill of soccer combined with high-powered vehicles in this adrenaline-pumping sports game!
+            </p>
+            <div class="flex flex-wrap justify-center gap-4 mb-8">
+                <span class="bg-white shadow px-4 py-2 rounded-full text-sm font-semibold inline-flex items-center">
+                    <i class="fas fa-check-circle text-sport-green mr-2"></i>100% FREE
+                </span>
+                <span class="bg-white shadow px-4 py-2 rounded-full text-sm font-semibold inline-flex items-center">
+                    <i class="fas fa-bolt text-sport-orange mr-2"></i>Instant Play
+                </span>
+                <span class="bg-white shadow px-4 py-2 rounded-full text-sm font-semibold inline-flex items-center">
+                    <i class="fas fa-users text-sport-blue mr-2"></i>Multiplayer
+                </span>
+                <span class="bg-white shadow px-4 py-2 rounded-full text-sm font-semibold inline-flex items-center">
+                    <i class="fas fa-trophy text-sport-orange mr-2"></i>Competitive
+                </span>
+            </div>
+        </section>
+
+        <!-- Featured Game Section -->
+        <section id="featured" class="mb-24">
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                <div class="p-8">
+                    <!-- Game header -->
+                    <div class="flex flex-col md:flex-row justify-between items-start mb-6">
+                        <div>
+                            <div class="flex items-center mb-2">
+                                <h2 class="text-3xl font-bold gradient-text mr-4">Rocket League</h2>
+                                <span class="bg-sport-green bg-opacity-10 text-sport-green px-3 py-1 rounded-full text-xs font-semibold">
+                                    Sports
+                                </span>
+                            </div>
+                            <p class="text-gray-600">
+                                By Psyonix • Released 2015 • Free-to-Play
+                            </p>
+                        </div>
+                        <div class="mt-4 md:mt-0 flex items-center">
+                            <div class="mr-4 text-center">
+                                <div class="text-3xl font-bold gradient-text">9.2</div>
+                                <div class="text-sm text-gray-500">Overall Score</div>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-3xl font-bold text-sport-green">96%</div>
+                                <div class="text-sm text-gray-500">Positive Reviews</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Game trailer/screenshot -->
+                    <div class="mb-8 rounded-lg overflow-hidden shadow-lg">
+                        <img src="images/car-1.png" alt="Rocket League gameplay" class="w-full h-auto">
+                    </div>
+                    
+                    <!-- Game description -->
+                    <div class="mb-8">
+                        <h3 class="text-2xl font-bold mb-4 gradient-border inline-block">Game Overview</h3>
+                        <p class="text-gray-700 mb-6 leading-relaxed">
+                            Rocket League is a high-powered hybrid of arcade-style soccer and vehicular mayhem with easy-to-understand controls and fluid, physics-driven competition. It's a futuristic sports game where players control rocket-powered vehicles to hit a ball into the opponent's goal.
+                        </p>
+                        <p class="text-gray-700 mb-6 leading-relaxed">
+                            The game includes casual and competitive online matches, a fully-featured offline season mode, special "Mutators" that let you change the rules entirely, hockey and basketball-inspired game modes, and more than 500 trillion possible cosmetic customization combinations.
+                        </p>
+                    </div>
+                    
+                    <!-- Game features -->
+                    <div class="mb-8">
+                        <h3 class="text-2xl font-bold mb-4 gradient-border inline-block">Key Features</h3>
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <div class="bg-sport-light p-4 rounded-lg">
+                                <div class="flex items-center mb-2">
+                                    <i class="fas fa-users text-2xl feature-icon mr-3"></i>
+                                    <h4 class="font-semibold">Multiplayer Action</h4>
+                                </div>
+                                <p class="text-gray-600">Play in teams of up to 4v4 with friends or matchmake with players online.</p>
+                            </div>
+                            <div class="bg-sport-light p-4 rounded-lg">
+                                <div class="flex items-center mb-2">
+                                    <i class="fas fa-car text-2xl feature-icon mr-3"></i>
+                                    <h4 class="font-semibold">Vehicle Customization</h4>
+                                </div>
+                                <p class="text-gray-600">Unlock items and customize your car with over 500 trillion possible combinations.</p>
+                            </div>
+                            <div class="bg-sport-light p-4 rounded-lg">
+                                <div class="flex items-center mb-2">
+                                    <i class="fas fa-trophy text-2xl feature-icon mr-3"></i>
+                                    <h4 class="font-semibold">Competitive Seasons</h4>
+                                </div>
+                                <p class="text-gray-600">Climb the competitive ranks and earn seasonal rewards based on your performance.</p>
+                            </div>
+                            <div class="bg-sport-light p-4 rounded-lg">
+                                <div class="flex items-center mb-2">
+                                    <i class="fas fa-gamepad text-2xl feature-icon mr-3"></i>
+                                    <h4 class="font-semibold">Cross-Platform Play</h4>
+                                </div>
+                                <p class="text-gray-600">Play with friends across different platforms including PC, PlayStation, Xbox, and Nintendo Switch.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Game screenshots -->
+                    <div class="mb-8">
+                        <h3 class="text-2xl font-bold mb-4 gradient-border inline-block">Screenshots</h3>
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                            <div class="rounded-lg overflow-hidden shadow">
+                                <img src="images/car-2.png" alt="Rocket League screenshot 1" class="w-full h-auto object-cover object-center">
+                            </div>
+                            <div class="rounded-lg overflow-hidden shadow">
+                                <img src="images/car-3.png" alt="Rocket League screenshot 2" class="w-full h-auto object-cover object-center">
+                            </div>
+                            <div class="rounded-lg overflow-hidden shadow">
+                                <img src="images/car-4.png" alt="Rocket League screenshot 3" class="w-full h-auto object-cover object-center">
+                            </div>
+                            <div class="rounded-lg overflow-hidden shadow">
+                                <img src="images/car-5.png" alt="Rocket League screenshot 4" class="w-full h-auto object-cover object-center">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Pro tips -->
+                    <div class="mb-8">
+                        <h3 class="text-2xl font-bold mb-4 gradient-border inline-block">Pro Tips & Strategies</h3>
+                        <div class="bg-sport-light p-6 rounded-lg">
+                            <div class="mb-6">
+                                <h4 class="text-xl font-semibold mb-2">Beginner Tips</h4>
+                                <ul class="list-disc pl-5 space-y-2 text-gray-700">
+                                    <li>Complete the tutorial to learn the basic controls and mechanics</li>
+                                    <li>Practice aerial control in free play mode before attempting in matches</li>
+                                    <li>Use ball cam to keep track of the ball at all times</li>
+                                    <li>Learn to use powerslide (drift) for quick turns</li>
+                                    <li>Don't chase the ball - position yourself strategically</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-semibold mb-2">Advanced Techniques</h4>
+                                <ul class="list-disc pl-5 space-y-2 text-gray-700">
+                                    <li>Master the half-flip for quick direction changes</li>
+                                    <li>Practice wall shots and air dribbles in training</li>
+                                    <li>Learn to fast aerial to beat opponents to the ball</li>
+                                    <li>Use wave dashes to maintain momentum</li>
+                                    <li>Develop team rotations with consistent teammates</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Play button -->
+                    <div class="flex justify-center mb-8">
+                        <a href="https://www.rocketleague.com/" target="_blank" rel="noopener" 
+                           class="gradient-bg text-white font-bold py-4 px-10 rounded-full text-xl shadow-lg inline-flex items-center hover:opacity-90 transition">
+                            <i class="fas fa-play mr-2"></i>
+                            Play Now - It's Free!
+                        </a>
+                    </div>
+                    
+                    <!-- Game statistics -->
+                    <div class="bg-white rounded-xl shadow-lg p-4 md:p-6 mb-8">
+                        <div class="flex flex-wrap justify-between items-center">
+                            <div class="text-center w-full sm:w-1/3 mb-4 sm:mb-0">
+                                <div class="text-4xl md:text-5xl font-bold text-sport-blue mb-2">5M+</div>
+                                <div class="text-gray-500">Monthly Players</div>
+                                <div class="flex justify-center items-center mt-2 text-sport-blue">
+                                    <i class="fas fa-users mr-1"></i>
+                                    <span class="text-sm">Active community</span>
+                                </div>
+                            </div>
+                            
+                            <div class="hidden sm:block h-16 w-px bg-gray-200"></div>
+                            
+                            <div class="text-center w-full sm:w-1/3 mb-4 sm:mb-0">
+                                <div class="text-4xl md:text-5xl font-bold text-sport-green mb-2">96%</div>
+                                <div class="text-gray-500">Positive Reviews</div>
+                                <div class="flex justify-center items-center mt-2 text-sport-green">
+                                    <i class="fas fa-thumbs-up mr-1"></i>
+                                    <span class="text-sm">Player satisfaction</span>
+                                </div>
+                            </div>
+                            
+                            <div class="hidden sm:block h-16 w-px bg-gray-200"></div>
+                            
+                            <div class="text-center w-full sm:w-1/3">
+                                <div class="text-4xl md:text-5xl font-bold text-sport-orange mb-2">7+</div>
+                                <div class="text-gray-500">Years Active</div>
+                                <div class="flex justify-center items-center mt-2 text-sport-orange">
+                                    <i class="fas fa-calendar-alt mr-1"></i>
+                                    <span class="text-sm">Established 2015</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 标签导航 -->
+                    <div class="mb-8">
+                        <ul class="flex border-b border-gray-200 text-center">
+                            <li class="flex-1">
+                                <button class="w-full py-3 px-4 text-sport-blue border-b-2 border-sport-blue font-medium tab-button active" 
+                                        data-target="key-features">
+                                    Key Features
+                                </button>
+                            </li>
+                            <li class="flex-1">
+                                <button class="w-full py-3 px-4 text-gray-500 hover:text-sport-blue font-medium tab-button" 
+                                        data-target="gameplay">
+                                    Gameplay
+                                </button>
+                            </li>
+                            <li class="flex-1">
+                                <button class="w-full py-3 px-4 text-gray-500 hover:text-sport-blue font-medium tab-button" 
+                                        data-target="reviews">
+                                    Reviews
+                                </button>
+                            </li>
+                            <li class="flex-1">
+                                <button class="w-full py-3 px-4 text-gray-500 hover:text-sport-blue font-medium tab-button" 
+                                        data-target="system-requirements">
+                                    System Requirements
+                                </button>
+                            </li>
+                        </ul>
+                        
+                        <!-- 标签内容区域 -->
+                        <div class="mt-6">
+                            <!-- Key Features 内容 -->
+                            <div id="key-features" class="tab-content block">
+                                <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+                                    <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition-shadow">
+                                        <div class="flex items-center mb-4 text-sport-blue">
+                                            <i class="fas fa-users text-2xl mr-3"></i>
+                                            <h3 class="text-lg font-semibold">Multiplayer Action</h3>
+                                        </div>
+                                        <div class="h-40 overflow-hidden rounded-lg mb-4">
+                                            <img src="images/car-2.png" alt="Multiplayer Action" class="w-full h-full object-cover object-center">
+                                        </div>
+                                        <p class="text-gray-600">Play in teams of up to 4v4 with friends or matchmake with players online.</p>
+                                    </div>
+                                    
+                                    <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition-shadow">
+                                        <div class="flex items-center mb-4 text-sport-green">
+                                            <i class="fas fa-car text-2xl mr-3"></i>
+                                            <h3 class="text-lg font-semibold">Vehicle Customization</h3>
+                                        </div>
+                                        <div class="h-40 overflow-hidden rounded-lg mb-4">
+                                            <img src="images/car-3.png" alt="Vehicle Customization" class="w-full h-full object-cover object-center">
+                                        </div>
+                                        <p class="text-gray-600">Personalize your car with thousands of combinations of paint, wheels, boosts and more.</p>
+                                    </div>
+                                    
+                                    <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition-shadow">
+                                        <div class="flex items-center mb-4 text-sport-orange">
+                                            <i class="fas fa-trophy text-2xl mr-3"></i>
+                                            <h3 class="text-lg font-semibold">Competitive Ranking</h3>
+                                        </div>
+                                        <div class="h-40 overflow-hidden rounded-lg mb-4">
+                                            <img src="images/car-4.png" alt="Competitive Ranking" class="w-full h-full object-cover object-center">
+                                        </div>
+                                        <p class="text-gray-600">Climb the competitive ladder from Bronze to Grand Champion and beyond.</p>
+                                    </div>
+                                    
+                                    <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition-shadow">
+                                        <div class="flex items-center mb-4 text-sport-blue">
+                                            <i class="fas fa-gamepad text-2xl mr-3"></i>
+                                            <h3 class="text-lg font-semibold">Cross-Platform Play</h3>
+                                        </div>
+                                        <div class="h-40 overflow-hidden rounded-lg mb-4">
+                                            <img src="images/car-5.png" alt="Cross-Platform Play" class="w-full h-full object-cover object-center">
+                                        </div>
+                                        <p class="text-gray-600">Play with friends across PC, PlayStation, Xbox, and Nintendo Switch.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Gameplay 内容 -->
+                            <div id="gameplay" class="tab-content hidden">
+                                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                                    <div class="bg-white rounded-lg shadow overflow-hidden">
+                                        <div class="h-48 overflow-hidden">
+                                            <img src="images/car-1.png" alt="Basic Controls" class="w-full h-full object-cover object-center">
+                                        </div>
+                                        <div class="p-4">
+                                            <h4 class="font-bold mb-2 text-sport-blue">Basic Controls</h4>
+                                            <ul class="space-y-2 text-gray-600">
+                                                <li class="flex items-start">
+                                                    <i class="fas fa-arrow-right text-sport-blue mt-1 mr-2"></i>
+                                                    <span>Use WASD or left stick to drive</span>
+                                                </li>
+                                                <li class="flex items-start">
+                                                    <i class="fas fa-arrow-right text-sport-blue mt-1 mr-2"></i>
+                                                    <span>Space/X button to jump and boost</span>
+                                                </li>
+                                                <li class="flex items-start">
+                                                    <i class="fas fa-arrow-right text-sport-blue mt-1 mr-2"></i>
+                                                    <span>Shift/Square for powerslide</span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="bg-white rounded-lg shadow overflow-hidden">
+                                        <div class="h-48 overflow-hidden">
+                                            <img src="images/car-2.png" alt="Game Modes" class="w-full h-full object-cover object-center">
+                                        </div>
+                                        <div class="p-4">
+                                            <h4 class="font-bold mb-2 text-sport-green">Game Modes</h4>
+                                            <ul class="space-y-2 text-gray-600">
+                                                <li class="flex items-start">
+                                                    <i class="fas fa-arrow-right text-sport-green mt-1 mr-2"></i>
+                                                    <span>Soccar - Classic soccer with cars</span>
+                                                </li>
+                                                <li class="flex items-start">
+                                                    <i class="fas fa-arrow-right text-sport-green mt-1 mr-2"></i>
+                                                    <span>Hoops - Basketball-inspired mode</span>
+                                                </li>
+                                                <li class="flex items-start">
+                                                    <i class="fas fa-arrow-right text-sport-green mt-1 mr-2"></i>
+                                                    <span>Rumble - Crazy power-ups mode</span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="bg-white rounded-lg shadow overflow-hidden">
+                                        <div class="h-48 overflow-hidden">
+                                            <img src="images/car-3.png" alt="Advanced Techniques" class="w-full h-full object-cover object-center">
+                                        </div>
+                                        <div class="p-4">
+                                            <h4 class="font-bold mb-2 text-sport-orange">Advanced Techniques</h4>
+                                            <ul class="space-y-2 text-gray-600">
+                                                <li class="flex items-start">
+                                                    <i class="fas fa-arrow-right text-sport-orange mt-1 mr-2"></i>
+                                                    <span>Aerial shots - Jump and boost to hit in air</span>
+                                                </li>
+                                                <li class="flex items-start">
+                                                    <i class="fas fa-arrow-right text-sport-orange mt-1 mr-2"></i>
+                                                    <span>Wall riding - Drive up walls for positioning</span>
+                                                </li>
+                                                <li class="flex items-start">
+                                                    <i class="fas fa-arrow-right text-sport-orange mt-1 mr-2"></i>
+                                                    <span>Flip resets - Advanced aerial technique</span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Reviews 内容 -->
+                            <div id="reviews" class="tab-content hidden">
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                    <div class="bg-white p-4 rounded-lg shadow">
+                                        <div class="flex items-start mb-3">
+                                            <div class="bg-sport-blue rounded-full w-10 h-10 flex items-center justify-center text-white font-bold mr-3">
+                                                J
+                                            </div>
+                                            <div>
+                                                <h5 class="font-bold">JohnGamer</h5>
+                                                <div class="flex text-sport-orange text-sm mb-1">
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="h-32 overflow-hidden rounded-lg mb-3">
+                                            <img src="images/car-4.png" alt="Review Screenshot" class="w-full h-full object-cover object-center">
+                                        </div>
+                                        <p class="text-gray-600">"Rocket League is the perfect blend of sports and driving games. The learning curve is perfect - easy to pick up but with endless room for improvement."</p>
+                                    </div>
+                                    
+                                    <div class="bg-white p-4 rounded-lg shadow">
+                                        <div class="flex items-start mb-3">
+                                            <div class="bg-sport-green rounded-full w-10 h-10 flex items-center justify-center text-white font-bold mr-3">
+                                                S
+                                            </div>
+                                            <div>
+                                                <h5 class="font-bold">SoccerFan22</h5>
+                                                <div class="flex text-sport-orange text-sm mb-1">
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star"></i>
+                                                    <i class="fas fa-star-half-alt"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="h-32 overflow-hidden rounded-lg mb-3">
+                                            <img src="images/car-5.png" alt="Review Screenshot" class="w-full h-full object-cover object-center">
+                                        </div>
+                                        <p class="text-gray-600">"As a soccer fan, I was skeptical at first, but this game captures the excitement of the sport while adding a unique twist. The community is great too!"</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- System Requirements 内容 -->
+                            <div id="system-requirements" class="tab-content hidden">
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                    <div class="bg-white rounded-lg shadow overflow-hidden">
+                                        <div class="h-48 overflow-hidden relative">
+                                            <img src="images/car-3.png" alt="Minimum Requirements" class="w-full h-full object-cover object-center">
+                                            <div class="absolute inset-0 bg-gradient-to-t from-sport-blue to-transparent opacity-70"></div>
+                                            <div class="absolute bottom-0 left-0 right-0 p-4">
+                                                <h3 class="text-xl font-bold text-white">Minimum Requirements</h3>
+                                            </div>
+                                        </div>
+                                        <div class="p-6">
+                                            <ul class="space-y-3 text-gray-600">
+                                                <li class="flex items-start">
+                                                    <i class="fas fa-microchip text-sport-blue mt-1 mr-3"></i>
+                                                    <span><strong>CPU:</strong> Dual Core 2.5 GHz</span>
+                                                </li>
+                                                <li class="flex items-start">
+                                                    <i class="fas fa-memory text-sport-blue mt-1 mr-3"></i>
+                                                    <span><strong>RAM:</strong> 4 GB</span>
+                                                </li>
+                                                <li class="flex items-start">
+                                                    <i class="fas fa-desktop text-sport-blue mt-1 mr-3"></i>
+                                                    <span><strong>GPU:</strong> NVIDIA GeForce 760 or AMD Radeon R7 270X</span>
+                                                </li>
+                                                <li class="flex items-start">
+                                                    <i class="fas fa-hdd text-sport-blue mt-1 mr-3"></i>
+                                                    <span><strong>Storage:</strong> 20 GB available space</span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="bg-white rounded-lg shadow overflow-hidden">
+                                        <div class="h-48 overflow-hidden relative">
+                                            <img src="images/car-5.png" alt="Recommended Requirements" class="w-full h-full object-cover object-center">
+                                            <div class="absolute inset-0 bg-gradient-to-t from-sport-green to-transparent opacity-70"></div>
+                                            <div class="absolute bottom-0 left-0 right-0 p-4">
+                                                <h3 class="text-xl font-bold text-white">Recommended Requirements</h3>
+                                            </div>
+                                        </div>
+                                        <div class="p-6">
+                                            <ul class="space-y-3 text-gray-600">
+                                                <li class="flex items-start">
+                                                    <i class="fas fa-microchip text-sport-green mt-1 mr-3"></i>
+                                                    <span><strong>CPU:</strong> Quad Core 3.0 GHz</span>
+                                                </li>
+                                                <li class="flex items-start">
+                                                    <i class="fas fa-memory text-sport-green mt-1 mr-3"></i>
+                                                    <span><strong>RAM:</strong> 8 GB</span>
+                                                </li>
+                                                <li class="flex items-start">
+                                                    <i class="fas fa-desktop text-sport-green mt-1 mr-3"></i>
+                                                    <span><strong>GPU:</strong> NVIDIA GeForce GTX 1060 or AMD Radeon RX 570</span>
+                                                </li>
+                                                <li class="flex items-start">
+                                                    <i class="fas fa-hdd text-sport-green mt-1 mr-3"></i>
+                                                    <span><strong>Storage:</strong> 20 GB SSD</span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 页面底部 -->
+    <footer class="bg-gray-100 mt-16 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4 gradient-text">SportyPlay</h3>
+                    <p class="text-gray-600">Your ultimate destination for free sports gaming entertainment.</p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4 text-gray-800">Games</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-600 hover:text-sport-blue transition">Rocket League</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-sport-blue transition">FIFA Online</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-sport-blue transition">NBA Jam</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-sport-blue transition">Tennis World</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4 text-gray-800">Resources</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-600 hover:text-sport-blue transition">Game Guides</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-sport-blue transition">Pro Tips</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-sport-blue transition">Community</a></li>
+                        <li><a href="#" class="text-gray-600 hover:text-sport-blue transition">Support</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4 text-gray-800">Connect With Us</h3>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-600 hover:text-sport-blue transition">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="text-gray-600 hover:text-sport-blue transition">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                        <a href="#" class="text-gray-600 hover:text-sport-blue transition">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="text-gray-600 hover:text-sport-blue transition">
+                            <i class="fab fa-discord"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-8 pt-8 border-t border-gray-200">
+                <p class="text-gray-600">© 2023 SportyPlay. All rights reserved.</p>
+                <p class="mt-2"><a href="https://beian.miit.gov.cn" rel="nofollow" class="hover:text-sport-blue">渝ICP备2023018151号</a></p>
+                <p class="mt-1">Contact Us: ytsgabcde2323@2925.com</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 添加标签切换的JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabButtons = document.querySelectorAll('.tab-button');
+            const tabContents = document.querySelectorAll('.tab-content');
+
+            tabButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // 移除所有按钮的活动状态
+                    tabButtons.forEach(btn => {
+                        btn.classList.remove('text-sport-blue');
+                        btn.classList.remove('border-sport-blue');
+                        btn.classList.add('text-gray-500');
+                        btn.classList.add('hover:text-sport-blue');
+                    });
+                    
+                    // 添加当前按钮的活动状态
+                    this.classList.add('text-sport-blue');
+                    this.classList.add('border-sport-blue');
+                    this.classList.remove('text-gray-500');
+                    this.classList.remove('hover:text-sport-blue');
+                    
+                    // 隐藏所有内容
+                    tabContents.forEach(content => {
+                        content.classList.remove('block');
+                        content.classList.add('hidden');
+                    });
+                    
+                    // 显示目标内容
+                    const target = this.getAttribute('data-target');
+                    document.getElementById(target).classList.remove('hidden');
+                    document.getElementById(target).classList.add('block');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
+
